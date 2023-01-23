@@ -3,7 +3,7 @@
   <div>
     <label>
       <span>Enlace a la partida:</span>
-      <input type="text" name="link" required [(ngModel)]="link" #inputLink="ngModel" pattern="https://www.chess.com/game/live/[0-9]+" />
+      <input type="text" name="link" required [(ngModel)]="link" #inputLink="ngModel" pattern="https://www.chess.com/.*/[0-9]+.*" />
     </label>
   </div>
   <div *ngIf="inputLink.invalid && (inputLink.dirty || inputLink.touched)"
@@ -12,7 +12,7 @@
     Debes escibir un enlace.
   </div>
   <div *ngIf="inputLink.errors?.['pattern']">
-    El enlace tiene que ser parecido a <a href="https://www.chess.com/game/live/67909477479" target="_blank">https://www.chess.com/game/live/67909477479</a>
+    El enlace tiene que ser parecido a <a href="https://www.chess.com/game/live/67909477479" target="_blank">https://www.chess.com/game/live/67909477479</a> o parecido a <a href="https://www.chess.com/analysis/game/live/67909477479?tab=analysis" target="_blank">https://www.chess.com/analysis/game/live/67909477479?tab=analysis</a>
   </div>
 </div>
   <div>

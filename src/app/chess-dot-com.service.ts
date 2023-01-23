@@ -13,7 +13,7 @@ export class ChessDotComService {
   constructor(private readonly http: HttpClient) { }
 
   public getGameByUrl(url: string): Observable<Game> {
-    const id = url.split('/').pop();
+    const id = (url.split('/').pop() || '').split(/[^\d]/)[0]
     return this.http.get<CallbackGame>(HTTP_BASE_URL + `/callback/live/game/${id}`)
       .pipe(map(x => buildGame(url, x)));
   }
